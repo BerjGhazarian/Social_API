@@ -31,3 +31,19 @@ module.exports = {
             return res.status(500).json(err);
           });
       },
+      updateUser(req, res) {
+        User.findOneAndUpdate(
+          { _id: req.params.userId },
+          { $set: req.body },
+          { runValidators: true, new: true }
+        )
+          .then((users) =>
+            !users
+              ? res.status(404).json({ message: 'No users with this id!' })
+              : res.json(users)
+          )
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          });
+      },
