@@ -44,3 +44,15 @@ module.exports = {
           });
       },
     
+      deleteThoughts(req, res) {
+        Thought.findOneAndDelete({ _id: req.params.id })
+          .then((thoughts) =>
+            !thoughts
+              ? res.status(404).json({ message: 'No thoughts with this id!' })
+              : res.json({ message: 'This thought has been deleted' })
+          )
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          });
+      },
