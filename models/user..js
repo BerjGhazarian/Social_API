@@ -34,3 +34,13 @@ const userSchema = new Schema(
       id: false,
     }
   );
+  userSchema
+  .virtual('friendCount')
+        .get(function () {
+            let friendsList = this.friends.length;
+                return `You have ${friendsList} friends on your friends list.`
+  });
+
+const User = model('User', userSchema);
+
+module.exports = User;
