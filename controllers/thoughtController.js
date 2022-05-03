@@ -22,3 +22,25 @@ module.exports = {
           return res.status(500).json(err);
         });
     },
+    createThoughts(req, res) {
+        Thought.create(req.body)
+          .then(({ _id }) => {
+            return User.findOneAndUpdate(
+              { _id: req.params.userId },
+              { $push: { thoughts: _id } },
+              { new: true }
+            );
+          })
+          .then((user) =>
+            !user
+              ? res.status(404).json({
+                message: 'no user with that ID',
+              })
+              : res.json(user)
+          )
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          });
+      },
+    
