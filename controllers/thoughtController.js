@@ -69,3 +69,18 @@ module.exports = {
             res.status(500).json(err);
           });
       },
+      addReactions(req, res) {
+        Thought.findOneAndUpdate(
+          { _id: req.params.thoughtId },
+          { $addToSet: { reactions: req.body } }, { new: true })
+          .then((thoughts) =>
+            !thoughts
+              ? res.status(404).json({ message: 'No thoughts with this id!' })
+              : res.json(thoughts)
+          )
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          });
+      },
+    
