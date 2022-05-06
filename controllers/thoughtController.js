@@ -8,7 +8,7 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
   
-    getThoughtById(req, res) {
+    getSingleThought(req, res) {
       Thought.findOne({ _id: req.params.id })
         .populate('reactions')
         .select('-__v')

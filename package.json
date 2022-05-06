@@ -1,5 +1,24 @@
 {
   "dependencies": {
-    "inquirer": "^8.2.4"
-  }
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "social_api",
+  "description": "Social API is a web app that uses NoSQL database where users can share thoughts and reactions about one another.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BerjGhazarian/Social_API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BerjGhazarian/Social_API/issues"
+  },
+  "homepage": "https://github.com/BerjGhazarian/Social_API#readme"
 }
