@@ -24,3 +24,7 @@ Once having cloned the repository run the command npm i within the terminal of y
 The application will then run once you input npm run start.
 
 ## links
+
+Github Link : https://github.com/BerjGhazarian/Social_API
+
+Video Link : https://drive.google.com/file/d/1-M7FYOKThohABgSnwK0eAnyc0eFwJ0zy/view
